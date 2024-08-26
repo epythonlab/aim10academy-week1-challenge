@@ -1,0 +1,6 @@
+*.log
+# exclude .venv
+.venv/
+# exclude data.zip, data
+data.zip
+data/
