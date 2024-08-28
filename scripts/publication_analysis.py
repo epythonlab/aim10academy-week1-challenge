@@ -3,6 +3,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 from typing import Tuple
+import statsmodels.api as sm
 
 def analyze_annual_trends(data: pd.DataFrame) -> pd.DataFrame:
     """
@@ -58,4 +59,22 @@ def plot_long_term_trends(annual_counts: pd.DataFrame, quarterly_counts: pd.Data
     plt.xlabel('Quarter')
     plt.ylabel('Number of Articles')
     plt.grid(True)
+    plt.show()
+
+
+
+def decompose_time_series(data: pd.DataFrame, frequency: str = 'M') -> None:
+    """
+    Decompose the time series into trend, seasonality, and residual components.
+
+    Parameters:
+    - data (pd.DataFrame): The data with a 'date' column.
+    - frequency (str): The frequency for decomposition ('M' for monthly, 'A' for annual).
+
+    Returns:
+    - None: Plots the decomposition.
+    """
+    data.set_index('date', inplace=True)
+    decomposed = sm.tsa.seasonal_decompose(data['no_of_articles'], model='additive', period=frequency)
+    decomposed.plot()
     plt.show()
