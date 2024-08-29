@@ -1,4 +1,5 @@
 import pandas as pd
+import re
 
 def headline_length_stats(data: pd.DataFrame) -> pd.Series:
     """
@@ -63,3 +64,32 @@ def articles_by_time(data: pd.DataFrame) -> pd.Series:
     
     # Return counts of articles by hour of the day
     return data['time'].value_counts().sort_index()
+
+
+def extract_domains(email: str) -> str:
+    """
+    Extract domain from an email address.
+    
+    Parameters:
+    - email (str): Email address to extract the domain from.
+    
+    Returns:
+    - str: Domain part of the email address.
+    """
+    match = re.search(r"@([\w\.-]+)", email)
+    return match.group(1) if match else None
+
+def identify_unique_domains(data: pd.DataFrame) -> pd.DataFrame:
+    """
+    Identify unique domains from email addresses used as publisher names.
+    
+    Parameters:
+    - data (pd.DataFrame): DataFrame containing the articles with a 'publisher' column.
+    
+    Returns:
+    - pd.DataFrame: DataFrame containing unique domains and their frequency.
+    """
+    data['domain'] = data['publisher'].apply(extract_domains)
+    domain_counts = data['domain'].value_counts().reset_index()
+    domain_counts.columns = ['domain', 'count']
+    return domain_counts
