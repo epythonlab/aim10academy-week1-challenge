@@ -48,7 +48,8 @@ def load_data(zip_path: str, filename: str) -> pd.DataFrame:
         df = load_csv_from_zip(extract_to, filename)
         # convert the date type to datetime 
         # df['date'] = pd.to_datetime(df['date'], format="%Y-%m-%d %H:%M:%S%z")
-        df['date'] = pd.to_datetime(df['date'], format='mixed', utc=True)  # Convert to datetime, coerce errors to NaT
+        
+        df['date'] = pd.to_datetime(df['date'], format="mixed", utc=True)  # Convert to datetime, coerce errors to NaT
         return df
     
     except Exception as e:
