@@ -63,7 +63,7 @@ def plot_long_term_trends(annual_counts: pd.DataFrame, quarterly_counts: pd.Data
 
 
 
-def decompose_time_series(data: pd.DataFrame, frequency: str = 'M') -> None:
+def decompose_time_series(data: pd.DataFrame, frequency: int) -> None:
     """
     Decompose the time series into trend, seasonality, and residual components.
 
@@ -75,6 +75,6 @@ def decompose_time_series(data: pd.DataFrame, frequency: str = 'M') -> None:
     - None: Plots the decomposition.
     """
     data.set_index('date', inplace=True)
+    
     decomposed = sm.tsa.seasonal_decompose(data['no_of_articles'], model='additive', period=frequency)
-    decomposed.plot()
-    plt.show()
+    return decomposed

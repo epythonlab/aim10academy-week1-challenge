@@ -42,3 +42,24 @@ def articles_by_day_of_week(data: pd.DataFrame) -> pd.Series:
     data['day_of_week'] = data['date'].dt.day_name()
     
     return data['day_of_week'].value_counts()
+
+
+def articles_by_time(data: pd.DataFrame) -> pd.Series:
+    """
+    Analyze the distribution of articles by time of the day.
+    
+    Parameters:
+        data (pd.DataFrame): DataFrame containing the data with a 'date' column in datetime format.
+    
+    Returns:
+        pd.Series: Counts of articles by time of the day.
+    """
+    # Ensure the 'date' column is in datetime format
+    if not pd.api.types.is_datetime64_any_dtype(data['date']):
+        raise ValueError("The 'date' column must be in datetime format.")
+    
+    # Extract the hour of the day
+    data['time'] = data['date'].dt.time
+    
+    # Return counts of articles by hour of the day
+    return data['time'].value_counts().sort_index()
