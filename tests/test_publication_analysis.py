@@ -2,7 +2,7 @@
 
 import unittest
 import pandas as pd
-from publication_analysis import analyze_annual_trends, analyze_quarterly_trends, plot_long_term_trends, decompose_time_series
+from scripts.publication_analysis import analyze_annual_trends, analyze_quarterly_trends, plot_long_term_trends, decompose_time_series
 
 class TestPublicationAnalysis(unittest.TestCase):
 
