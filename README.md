@@ -28,21 +28,24 @@ The Financial News and Stock Price Integration Dataset (FNSPID) project is desig
 ├── README.md                  # Project documentation (this file)
 ├── src/
 │   ├── __init__.py
-│   ├── sentiment_analysis.py  # Sentiment analysis functions
-│   ├── correlation_analysis.py# Correlation analysis functions
-│   └── data_processing.py     # Data loading and preprocessing functions
+│   
 ├── notebooks/
 │   ├── __init__.py
-│   ├── sentiment_analysis_notebook.ipynb  # Jupyter notebook for sentiment analysis
-│   └── correlation_analysis_notebook.ipynb# Jupyter notebook for correlation analysis
+│   ├── stock_news.ipynb  # Jupyter notebook for stock news analysis
+│   └── financial_analysis_notebook.ipynb# Jupyter notebook for financial analysis
 ├── tests/
 │   ├── __init__.py
 │   ├── test_sentiment_analysis.py   # Unit tests for sentiment analysis
-│   ├── test_correlation_analysis.py # Unit tests for correlation analysis
+│   ├── test_publication_analysis.py # Unit tests for publication analysis
 │   └── test_data_processing.py      # Unit tests for data processing
+├── test_eda.py # Unit tests for exploratory analysis 
 └── scripts/
     ├── __init__.py
-    ├── streamlit_app.py      # Streamlit app script
+    ├── publication_analysis.py # Script for publication analysis
+    ├── sentiment_analysis.py # script for sentiment analysis
+    ├── data_processing.py # sript for data processing
+    ├── eda.py # script for exploratory analysis
+    ├── correlation_analysis.py # script for correlation analysis    
     └── README.md             # Documentation for the scripts directory
 
 # Installation
