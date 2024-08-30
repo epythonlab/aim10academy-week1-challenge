@@ -3,6 +3,7 @@
 import unittest
 import os
 import pandas as pd
+import zipfile
 from scripts.data_processing import extract_zip, load_csv_from_zip, load_data
 
 class TestDataProcessing(unittest.TestCase):
