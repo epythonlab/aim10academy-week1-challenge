@@ -46,10 +46,14 @@ def load_data(zip_path: str, filename: str) -> pd.DataFrame:
         extract_zip(zip_path, extract_to)
     
         df = load_csv_from_zip(extract_to, filename)
-        # convert the date type to datetime 
-        # df['date'] = pd.to_datetime(df['date'], format="%Y-%m-%d %H:%M:%S%z")
+        # Standardize the Date column
+        if 'Date' in df.columns:
+            df['Date'] = pd.to_datetime(df['Date'], errors='coerce', utc=True)
+        if 'date' in df.columns:
+            df['date'] = pd.to_datetime(df['date'], format='mixed', utc=True)
         
-        df['date'] = pd.to_datetime(df['date'], format="mixed", utc=True)  # Convert to datetime, coerce errors to NaT
+        
+        # df['date'] = pd.to_datetime(df['Date'], format="mixed", utc=True)  # Convert to datetime, coerce errors to NaT
         return df
     
     except Exception as e:
