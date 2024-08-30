@@ -38,7 +38,8 @@ The Financial News and Stock Price Integration Dataset (FNSPID) project is desig
 │   ├── test_sentiment_analysis.py   # Unit tests for sentiment analysis
 │   ├── test_publication_analysis.py # Unit tests for publication analysis
 │   └── test_data_processing.py      # Unit tests for data processing
-├── test_descriptive_analysis.py # Unit tests for exploratory analysis 
+    ├── test_descriptive_analysis.py # Unit tests for exploratory analysis 
+
 └── scripts/
     ├── __init__.py
     ├── publication_analysis.py # Script for publication analysis
