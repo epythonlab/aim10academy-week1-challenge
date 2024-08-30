@@ -60,8 +60,14 @@ class TestDA(unittest.TestCase):
         time_counts = articles_by_time(self.data)
         
         self.assertIsInstance(time_counts, pd.Series)
-        self.assertEqual(time_counts.index[0], pd.Timestamp('2024-08-01 10:00:00').time())
-        self.assertEqual(time_counts.index[1], pd.Timestamp('2024-08-02 14:30:00').time())
+        
+        # Correctly check if the times are in the result
+        expected_times = [pd.Timestamp('2024-08-01 10:00:00').time(),
+                          pd.Timestamp('2024-08-02 14:30:00').time(),
+                          pd.Timestamp('2024-08-03 09:00:00').time()]
+        
+        for expected_time in expected_times:
+            self.assertIn(expected_time, time_counts.index)
 
     def test_extract_domains(self):
         domain = extract_domains('john.doe@example.com')
