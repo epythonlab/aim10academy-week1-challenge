@@ -1,4 +1,4 @@
-# test_publication_analysis.py
+# tests/test_publication_analysis.py
 
 import unittest
 import pandas as pd
