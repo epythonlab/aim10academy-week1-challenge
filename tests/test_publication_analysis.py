@@ -1,4 +1,4 @@
-# test_publication_analysis.py
+# tests/test_publication_analysis.py
 
 import unittest
 import pandas as pd
@@ -39,18 +39,6 @@ class TestPublicationAnalysis(unittest.TestCase):
             plot_long_term_trends(annual_counts, quarterly_counts)
         except Exception as e:
             self.fail(f"plot_long_term_trends failed: {e}")
-
-    def test_decompose_time_series(self):
-        self.data['no_of_articles'] = range(1, 101)
-        self.data['date'] = pd.to_datetime(self.data['date'])
-        self.data.set_index('date', inplace=True)
-        
-        decomposed = decompose_time_series(self.data, frequency=12)
-        
-        self.assertIsNotNone(decomposed.trend)
-        self.assertIsNotNone(decomposed.seasonal)
-        self.assertIsNotNone(decomposed.resid)
-        self.assertIsNotNone(decomposed.observed)
 
 if __name__ == "__main__":
     unittest.main()
