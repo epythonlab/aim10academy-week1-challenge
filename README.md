@@ -13,7 +13,7 @@ The Financial News and Stock Price Integration Dataset (FNSPID) project is desig
 ### Key Features
 - **Sentiment Analysis**: Quantify the tone and sentiment expressed in financial news headlines using Natural Language Processing (NLP) techniques.
 - **Correlation Analysis**: Establish statistical correlations between sentiment derived from news articles and corresponding stock price movements.
-- **Streamlit App**: An interactive dashboard for visualizing sentiment analysis and correlation results.
+- **Financial Quantitative Analysis**: comprehensive quantitative evaluation of stock market data and its correlation with financial news using technical analysis indicators and financial metrics.
 
 ## Directory Structure
 
