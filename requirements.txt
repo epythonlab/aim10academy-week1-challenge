@@ -75,7 +75,6 @@ smmap==5.0.1
 stack-data==0.6.3
 statsmodels==0.14.2
 streamlit==1.37.1
-TA-Lib==0.4.32
 tenacity==8.5.0
 textblob==0.18.0.post0
 toml==0.10.2
