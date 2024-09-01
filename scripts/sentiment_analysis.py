@@ -146,7 +146,7 @@ class SentimentAnalyzer:
         - pd.DataFrame: DataFrame with daily average sentiment scores for each stock.
         """
         # Define sentiment columns
-        sentiment_cols = ['neg', 'neu', 'pos', 'compound']
+        sentiment_cols = ['neg', 'neu', 'pos']
         
         # Group by Date and stock, then compute mean of sentiment columns
         daily_sentiment = df.groupby(level=['Date', 'stock'])[sentiment_cols].mean().reset_index()
@@ -177,7 +177,7 @@ class SentimentAnalyzer:
         # ax.plot(stock_data['Date'], stock_data['compound'], label='Compound Sentiment', color='blue')
         
         # Set plot title and labels
-        ax.set_title(f'Sentiment Scores for {stock}')
+        ax.set_title(f'Daily Sentiment Scores for {stock}')
         ax.set_xlabel('Date')
         ax.set_ylabel('Sentiment Score')
         
