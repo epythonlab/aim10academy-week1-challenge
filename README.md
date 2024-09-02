@@ -28,10 +28,10 @@ The Financial News and Stock Price Integration Dataset (FNSPID) project is desig
 ├── README.md                  # Project documentation (this file)
 ├── src/
 │   ├── __init__.py
-│   
+│   ├── app.py # Streamlit app for dashboard visualization  
 ├── notebooks/
 │   ├── __init__.py
-    ├── correlation_analysis_notebook.py
+│   ├── correlation_analysis_notebook.py
 │   ├── stock_news.ipynb  # Jupyter notebook for stock news analysis
 │   └── financial_analysis_notebook.ipynb# Jupyter notebook for financial analysis
 ├── tests/
@@ -67,6 +67,10 @@ cd aim10academy-week1-challenge
 navigate 
 >>> cd tests/
 >>pytest # all tests will be tested
+
+# To run the streamlite dashboard
+>>cd src
+>> streamlit run app.py
 
 
 
