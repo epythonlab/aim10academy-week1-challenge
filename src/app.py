@@ -1,9 +1,11 @@
 import streamlit as st
 import pandas as pd
-import sys
-sys.path.append('..')  # Adds the parent directory to the Python path
-from scripts.stock_analysis import load_data, plot_stock_data, plot_rsi, plot_macd
-from scripts.sentiment_analysis import SentimentAnalyzer as sa  # Import the new functions
+import sys, os
+# Add the 'scripts' directory to the Python path for module imports
+sys.path.append(os.path.abspath(os.path.join('..', 'scripts')))
+
+from stock_analysis import load_data, plot_stock_data, plot_rsi, plot_macd
+from sentiment_analysis import SentimentAnalyzer as sa  # Import the new functions
 # Streamlit UI
 def main():
     st.title('Stock Data and Sentiment Analysis')
